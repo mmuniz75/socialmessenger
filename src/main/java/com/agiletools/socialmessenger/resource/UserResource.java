@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 
 @RestController
 public class UserResource {
@@ -25,7 +27,7 @@ public class UserResource {
 
     @PostMapping(path = "/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<User> addUser(@RequestBody User user) {
+    public Mono<User> addUser(@RequestBody @Valid User user) {
         return repository.save(user);
     }
 }
