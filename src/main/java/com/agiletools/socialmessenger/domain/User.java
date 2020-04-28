@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Builder
@@ -20,12 +20,16 @@ public class User {
 
     @Id
     private String id;
+
+    @NotEmpty
     private String name;
 
     @Email
+    @NotEmpty
     private String email;
 
     @Length(min = 6)
+    @NotEmpty
     private String password;
 
 }
