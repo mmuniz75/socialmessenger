@@ -6,16 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.relational.core.mapping.Table;
+
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Data
 @Builder
-@Document("Users")
 @AllArgsConstructor
 @NoArgsConstructor
+@Table("_user")
 public class User {
 
     @Id

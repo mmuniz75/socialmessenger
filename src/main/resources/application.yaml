@@ -1,0 +1,12 @@
+logging:
+  level:
+    org.springframework.data.r2dbc: DEBUG
+
+spring:
+  r2dbc:
+    url: r2dbc:postgres://postgres:postgres@localhost:5432/mkt-msg
+
+
+
+
+

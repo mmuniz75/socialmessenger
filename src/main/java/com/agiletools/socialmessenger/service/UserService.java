@@ -3,10 +3,8 @@ package com.agiletools.socialmessenger.service;
 import com.agiletools.socialmessenger.domain.User;
 import com.agiletools.socialmessenger.exception.APIException;
 import com.agiletools.socialmessenger.exception.ConflictException;
-import com.agiletools.socialmessenger.exception.NotFoundException;
 import com.agiletools.socialmessenger.repository.UserRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -16,17 +14,13 @@ import javax.validation.Valid;
 
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private static final String EMAIL_ALREADY_EXISTS = "Email já está cadastrado";
     private static final String EMAIL_NOT_FOUND = "%s não cadastrado";
 
     private final UserRepository repository;
-
-    public UserService(UserRepository repository) {
-
-        this.repository = repository;
-    }
 
     public Flux<User> listUsers() {
 
